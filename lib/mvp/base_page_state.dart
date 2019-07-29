@@ -43,14 +43,15 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
             context: context,
             barrierDismissible: false,
             builder:(_) {
-              return WillPopScope(
-                onWillPop: () async {
-                  // 拦截到返回键，证明dialog被手动关闭
-                  _isShowDialog = false;
-                  return Future.value(true);
-                },
-                child: ProgressDialog(hintText: "正在加载..."),
-              );
+              return ProgressDialog(hintText: "正在加载...");
+//              return WillPopScope(
+//                onWillPop: () async {
+//                  // 拦截到返回键，证明dialog被手动关闭
+//                  _isShowDialog = false;
+//                  return Future.value(true);
+//                },
+//                child: ProgressDialog(hintText: "正在加载..."),
+//              );
             }
         );
       }catch(e){
